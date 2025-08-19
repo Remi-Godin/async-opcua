@@ -60,6 +60,11 @@ impl ExpandedMessageInfo for DynamicStructure {
 }
 
 impl DynamicStructure {
+    /// Get the type info for the dynamic structure.
+    pub fn get_type_def(&self) -> &StructTypeInfo {
+        &self.type_def
+    }
+
     /// Create a new struct, validating that it matches the provided type definition.
     pub fn new_struct(
         type_def: Arc<StructTypeInfo>,
