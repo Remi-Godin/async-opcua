@@ -86,7 +86,7 @@ impl CertificateStore {
             certificate_store.own_private_key_path = pkey_path.to_path_buf();
         }
         let (cert, pkey) = if certificate_store.ensure_pki_path().is_err() {
-            error!("Folder for storing certificates cannot be examined so server has no application instance certificate or private key.");
+            error!("Folder for storing certificates ({pki_path:?}) cannot be examined so server has no application instance certificate or private key.");
             (None, None)
         } else {
             let cert = certificate_store.read_own_cert();
